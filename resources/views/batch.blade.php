@@ -5,17 +5,25 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    @foreach($batches as $batch)
+        <a href="/batch/{{$batch->id}}">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200 hover:bg-gray-50">
+                        {{$batch->plant}}
+                    </div>
+                </div>
+            </div>
+        </a>
+    @endforeach
+    <a href="batch/create">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    @foreach($batches as $batch)
-                        <p>{{$batch->plant}}</p>
-                    @endforeach
-                    <a href="batch">New Batch</a>
+                <div class="p-6 bg-white border-b border-gray-200 hover:bg-gray-50">
+                    New Batch
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </x-guest-layout>
 

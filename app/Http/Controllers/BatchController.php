@@ -27,7 +27,7 @@ class BatchController extends Controller
      */
     public function create()
     {
-        //
+        return view('batch_create');
     }
 
     /**
@@ -38,7 +38,7 @@ class BatchController extends Controller
      */
     public function store(StoreBatchRequest $request)
     {
-        //
+        return view('batch');
     }
 
     /**
