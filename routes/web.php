@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\Production;
+//use App\Http\Controllers\Production;
 use App\Http\Controllers\BatchController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PlantsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/production', [Production::Class, 'index']);
+Route::group(['middleware' => ['auth']], function (){
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('plants', PlantsController::class);
+});
+
+//Route::get('/production', [Production::Class, 'index']);
 
 Route::resource('batch',BatchController::class);
 
