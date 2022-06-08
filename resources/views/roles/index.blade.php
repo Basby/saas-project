@@ -4,25 +4,22 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        @foreach($roles as $role)
-            <a href="batch/{{$role->id}}">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200  hover:bg-gray-50">
-                        {{$role->DESC}}
+    @foreach($roles as $role)
+        <a href="/role/{{$role->id}}">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200 hover:bg-gray-50">
+                        {{$role->name}}<br>
+                    </div>
                 </div>
             </div>
-        </div>
-            </a>
-        @endforeach
-    </div>
-
-    <a href="users/create"><div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        </a>
+    @endforeach
+    <a href="roles/create">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200  hover:bg-gray-50">
-                    New User
+                <div class="p-6 bg-white border-b border-gray-200 hover:bg-gray-50">
+                    New Role
                 </div>
             </div>
         </div>
