@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMediaRequest;
 use App\Http\Requests\UpdateMediaRequest;
 use App\Models\Media;
+use Illuminate\Support\Facades\DB;
 
 class MediaController extends Controller
 {
@@ -15,7 +16,8 @@ class MediaController extends Controller
      */
     public function index()
     {
-        //
+        $media = DB::table('media')->get();
+        return view('media.index', compact('media'));
     }
 
     /**

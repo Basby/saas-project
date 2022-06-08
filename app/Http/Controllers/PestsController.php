@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePestsRequest;
 use App\Http\Requests\UpdatePestsRequest;
 use App\Models\Pests;
+use Illuminate\Support\Facades\DB;
 
 class PestsController extends Controller
 {
@@ -15,7 +16,8 @@ class PestsController extends Controller
      */
     public function index()
     {
-        //
+        $pests = DB::table('pests')->get();
+        return view('pests.index', compact('pests'));
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDiseasesRequest;
 use App\Http\Requests\UpdateDiseasesRequest;
 use App\Models\Diseases;
+use Illuminate\Support\Facades\DB;
 
 class DiseasesController extends Controller
 {
@@ -15,7 +16,8 @@ class DiseasesController extends Controller
      */
     public function index()
     {
-        //
+        $diseases = DB::table('diseases')->get();
+        return view('diseases.index', compact('diseases'));
     }
 
     /**

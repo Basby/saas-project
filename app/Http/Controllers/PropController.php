@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePropRequest;
 use App\Http\Requests\UpdatePropRequest;
 use App\Models\Prop;
+use Illuminate\Support\Facades\DB;
 
 class PropController extends Controller
 {
@@ -15,7 +16,8 @@ class PropController extends Controller
      */
     public function index()
     {
-        //
+        $propagation = DB::table('propagation')->get();
+        return view('propagation.index', compact('propagation'));
     }
 
     /**

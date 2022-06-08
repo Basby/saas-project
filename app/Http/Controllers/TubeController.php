@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTubeRequest;
 use App\Http\Requests\UpdateTubeRequest;
 use App\Models\Tube;
+use Illuminate\Support\Facades\DB;
 
 class TubeController extends Controller
 {
@@ -15,7 +16,8 @@ class TubeController extends Controller
      */
     public function index()
     {
-        //
+        $tubing = DB::table('tubing')->get();
+        return view('tubing.index', compact('tubing'));
     }
 
     /**

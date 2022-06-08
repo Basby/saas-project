@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLocationsRequest;
 use App\Http\Requests\UpdateLocationsRequest;
 use App\Models\Locations;
+use Illuminate\Support\Facades\DB;
 
 class LocationsController extends Controller
 {
@@ -15,7 +16,8 @@ class LocationsController extends Controller
      */
     public function index()
     {
-        //
+        $locations = DB::table('locations')->get();
+        return view('locations.index', compact('locations'));
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePotRequest;
 use App\Http\Requests\UpdatePotRequest;
 use App\Models\Pot;
+use Illuminate\Support\Facades\DB;
 
 class PotController extends Controller
 {
@@ -15,7 +16,8 @@ class PotController extends Controller
      */
     public function index()
     {
-        //
+        $potting = DB::table('potting')->get();
+        return view('potting.index', compact('potting'));
     }
 
     /**

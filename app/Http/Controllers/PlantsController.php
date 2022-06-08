@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePlantsRequest;
 use App\Http\Requests\UpdatePlantsRequest;
 use App\Models\Plants;
+use Illuminate\Support\Facades\DB;
 
 class PlantsController extends Controller
 {
@@ -26,8 +27,8 @@ class PlantsController extends Controller
      */
     public function index()
     {
-        $plants = Plants::latest()->paginate(5);
-        return view('plants.index', compact('plants'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $plants = DB::table('plants')->get();
+        return view('plants.index', compact('plants'));
     }
 
     /**
