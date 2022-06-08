@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBatchRequest;
 use App\Http\Requests\UpdateBatchRequest;
 use App\Models\Batch;
+use Illuminate\Support\Facades\DB;
 
 class BatchController extends Controller
 {
@@ -15,7 +16,8 @@ class BatchController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $batches = DB::table('batches')->get();
+        return view('batch', compact('batches'));
     }
 
     /**

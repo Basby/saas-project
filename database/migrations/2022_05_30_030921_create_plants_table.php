@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('plants', function (Blueprint $table) {
-            $table->unsignedInteger('id',true)->default(1)->primary();
+            $table->id();
             $table->string('name',64);
             $table->string('description',128)->nullable();
             $table->timestamps();
